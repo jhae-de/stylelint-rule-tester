@@ -1,0 +1,37 @@
+name: Publish
+run-name: Release ${{ github.ref_name }}
+
+env:
+  NODE_VERSION: 18
+  REGISTRY_URL: https://registry.npmjs.org
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          registry-url: ${{ env.REGISTRY_URL }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run-script build
+
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}

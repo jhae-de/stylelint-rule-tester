@@ -1,0 +1,56 @@
+{
+  "name": "@jhae/stylelint-rule-tester",
+  "description": "A Stylelint rule tester for Jest.",
+  "version": "1.0.0",
+  "main": "./dist/rule-test.class.js",
+  "types": "./types/rule-test.class.d.ts",
+  "author": {
+    "name": "JHAE",
+    "url": "https://github.com/jhae-de"
+  },
+  "repository": {
+    "url": "https://github.com/jhae-de/stylelint-rule-tester.git",
+    "type": "git"
+  },
+  "homepage": "https://github.com/jhae-de/stylelint-rule-tester",
+  "license": "MIT",
+  "scripts": {
+    "lint": "npm run-script lint:prettier && npm run-script lint:eslint",
+    "lint:prettier": "prettier --ignore-path .gitignore --check .",
+    "lint:eslint": "eslint --ignore-path .gitignore .",
+    "test": "jest",
+    "test:watch": "npm run-script test -- --watchAll",
+    "test:coverage": "npm run-script test -- --coverage",
+    "test:watch:coverage": "npm run-script test:watch -- --coverage",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/jest": "^29.5.6",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "stylelint": "^15.11.0"
+  },
+  "keywords": [
+    "stylelint",
+    "stylelint-scss",
+    "stylelintrc",
+    "configuration",
+    "config",
+    "rule",
+    "rules",
+    "test",
+    "jest",
+    "ts-jest",
+    "helper"
+  ]
+}
