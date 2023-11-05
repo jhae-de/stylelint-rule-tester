@@ -7,9 +7,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.0.1] - 2023-11-05
+
+### Changed
+
+- Refactored tests
+- Updated readme
+
 ## [1.0.0] - 2023-10-21
 
 Initial release
 
-[Unreleased]: https://github.com/jhae-de/stylelint-rule-tester/compare/v1.0.0...main
+[Unreleased]: https://github.com/jhae-de/stylelint-rule-tester/compare/v1.0.1...main
+[1.0.1]: https://github.com/jhae-de/stylelint-rule-tester/releases/tag/v1.0.1
 [1.0.0]: https://github.com/jhae-de/stylelint-rule-tester/releases/tag/v1.0.0
