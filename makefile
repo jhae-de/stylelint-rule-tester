@@ -40,14 +40,14 @@ lint: start ## Run linter
 test: start ## Run tests
 	@docker compose exec app bash -c 'npm run-script test'
 
-.PHONY: test-watch
-test-watch: start ## Run tests and watch file changes
-	@docker compose exec app bash -c 'npm run-script test:watch'
-
 .PHONY: test-coverage
 test-coverage: start ## Run tests with coverage report
 	@docker compose exec app bash -c 'npm run-script test:coverage'
 
+.PHONY: test-watch
+test-watch: start ## Run tests and watch file changes
+	@docker compose exec app bash -c 'npm run-script test:watch'
+
 .PHONY: test-watch-coverage
-test-watch-coverage: start ## Run tests with coverage report and watch for file changes
+test-watch-coverage: start ## Run tests with coverage report and watch file changes
 	@docker compose exec app bash -c 'npm run-script test:watch:coverage'

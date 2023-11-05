@@ -21,8 +21,8 @@ describe('RuleTest class', (): void => {
         {
           warnings: [
             {
-              rule: 'at-rule-disallowed-list',
-              text: `Unexpected at-rule "import" (at-rule-disallowed-list)`,
+              rule: '_rule_name_',
+              text: `_linter_result_message_ (_rule_name_)`,
               severity: 'error',
             },
           ],
@@ -31,12 +31,12 @@ describe('RuleTest class', (): void => {
     } as ResolvedValue<LinterResult>);
   });
 
-  RuleTest.describe('at-rule-disallowed-list', {
-    name: 'rejects "@import" rule',
-    code: `@import 'test.css';`,
+  RuleTest.describe('_rule_name_', {
+    name: '_test_case_1_',
+    code: '_test_case_code_',
     expect: {
       errored: true,
-      messages: ['Unexpected at-rule "import"'],
+      messages: ['_linter_result_message_'],
       severities: ['error'],
     },
   });
@@ -49,8 +49,8 @@ describe('RuleTest class', (): void => {
         {
           warnings: [
             {
-              rule: 'at-rule-disallowed-list',
-              text: `Unexpected at-rule "import" (at-rule-disallowed-list)`,
+              rule: '_rule_name_',
+              text: `_linter_result_message_ (_rule_name_)`,
               severity: 'warning',
             },
           ],
@@ -59,12 +59,12 @@ describe('RuleTest class', (): void => {
     } as ResolvedValue<LinterResult>);
   });
 
-  RuleTest.describe('at-rule-disallowed-list', {
-    name: 'accepts "@import" rule with severity "warning"',
-    code: `@import 'test.css';`,
+  RuleTest.describe('_rule_name_', {
+    name: '_test_case_2_',
+    code: '_test_case_code_',
     expect: {
       errored: false,
-      messages: ['Unexpected at-rule "import"'],
+      messages: ['_linter_result_message_'],
       severities: ['warning'],
     },
   });
@@ -77,8 +77,8 @@ describe('RuleTest class', (): void => {
     } as ResolvedValue<LinterResult>);
   });
 
-  RuleTest.describe('at-rule-disallowed-list', {
-    name: 'accepts "@other" rules',
-    code: `@other 'test.scss';`,
+  RuleTest.describe('_rule_name_', {
+    name: '_test_case_3_',
+    code: '_test_case_code_',
   });
 });

@@ -43,8 +43,8 @@ RuleTest.describe(
     name: 'Disallow @import rule',
     // Place the code to be tested against the configuration file here.
     code: `
-      @import "test-1.scss";
-      @import "test-2.scss";
+      @import "test-1.css";
+      @import "test-2.css";
     `,
     // Define your expectation.
     expect: {
@@ -84,5 +84,5 @@ Rule 'at-rule-disallowed-list'
 
 ```
 
-Check out the [Standard SCSS Stylelint Config repository](https://github.com/jhae-de/stylelint-config-standard-scss)
-tests for more examples.
+Check out the [Standard SCSS Stylelint Config](https://github.com/jhae-de/stylelint-config-standard-scss) tests for more
+examples.
