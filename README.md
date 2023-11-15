@@ -16,7 +16,7 @@ npm install --save-dev @jhae/stylelint-rule-tester
 
 ## Usage
 
-Assuming that your Stylelint configuration file contains the following rule:
+Suppose your Stylelint configuration file contains the following rule:
 
 ```yaml
 at-rule-disallowed-list:
@@ -24,7 +24,7 @@ at-rule-disallowed-list:
   - debug
 ```
 
-Your test file for the `at-rule-disallowed-list` rule might look like this:
+Your test file for the `at-rule-disallowed-list` rule could look like this:
 
 ```typescript
 import { RuleTest } from '@jhae/stylelint-rule-tester';
