@@ -1,5 +1,5 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
-module.exports = {
+const config = {
   coveragePathIgnorePatterns: ['<rootDir>/node_modules'],
   coverageThreshold: {
     global: {
@@ -12,3 +12,5 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
 };
+
+export default config;
