@@ -26,7 +26,7 @@ stop: ## Stop the docker containers
 
 .PHONY: bash
 bash: start ## Access the app container
-	@docker compose exec app sh -c 'bash -l'
+	@docker compose exec app bash
 
 .PHONY: install
 install: start ## Install the dependencies
