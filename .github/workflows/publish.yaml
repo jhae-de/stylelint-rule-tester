@@ -12,5 +12,6 @@ jobs:
     uses: jhae-de/jhae-de/.github/workflows/node-package-publish.yaml@main
     with:
       node-version: 18
+      package-version: ${{ github.ref_name }}
     secrets:
       node-auth-token: ${{ secrets.NODE_AUTH_TOKEN }}

@@ -1,7 +1,7 @@
 {
   "name": "@jhae/stylelint-rule-tester",
   "description": "A Stylelint rule tester for Jest.",
-  "version": "1.1.0",
+  "version": "0.0.0",
   "main": "./dist/rule-test.class.js",
   "types": "./types/rule-test.class.d.ts",
   "author": {
