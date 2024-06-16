@@ -47,10 +47,8 @@ export class RuleTest {
    *
    * @param {string} ruleName The name of the rule
    * @param {TestCase[]} testCases The test cases
-   *
-   * @return {Promise<void>}
    */
-  public static async describe(ruleName: string, ...testCases: TestCase[]): Promise<void> {
+  public static describe(ruleName: string, ...testCases: TestCase[]): void {
     describe(`Rule '${ruleName}'`, (): void => {
       test.each(testCases)('$name', async (testCase: TestCase): Promise<void> => {
         const linterResult: LinterResult = await this.getLinterResult(testCase);
