@@ -36,7 +36,7 @@
     "prettier": "^3.3.2",
     "ts-jest": "^29.1.4",
     "typescript": "^5.4.5",
-    "typescript-eslint": "^7.13.0"
+    "typescript-eslint": "^8.0.1"
   },
   "peerDependencies": {
     "stylelint": "^16.6.1"
