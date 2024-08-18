@@ -22,3 +22,5 @@ jobs:
     with:
       node-version: 20
       upload-coverage: true
+    secrets:
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
