@@ -29,7 +29,7 @@ bash: start ## Access the app container
 	@docker compose exec app bash
 
 .PHONY: install
-install: start ## Install the dependencies
+install: pull start ## Install the dependencies
 	@docker compose exec app bash -c 'npm install'
 
 .PHONY: lint
