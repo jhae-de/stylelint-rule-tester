@@ -1,7 +1,7 @@
 include .env
 export
 
-PROJECT_NAME ?= Project name
+PROJECT_NAME ?= JHAE Stylelint rule tester
 COMPOSE_PROJECT_NAME ?= $(shell echo $(PROJECT_NAME) | sed 's/\(.*\)/\L\1/;s/[^[:alnum:]_-]/-/g')
 
 .DEFAULT_GOAL = help
