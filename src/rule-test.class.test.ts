@@ -15,6 +15,32 @@ describe('RuleTest class', (): void => {
 });
 
 describe('RuleTest class', (): void => {
+  describe('Errors', (): void => {
+    const expectedError: Error = new Error(
+      'Though both "code" and "files" are optional, you must have one and cannot have both.',
+    );
+
+    test('Without both "code" and "files"', (): void => {
+      expect((): void => {
+        void RuleTest['getLinterResult']({
+          name: '',
+        });
+      }).toThrow(expectedError);
+    });
+
+    test('With both "code" and "files"', (): void => {
+      expect((): void => {
+        void RuleTest['getLinterResult']({
+          name: '',
+          code: '',
+          files: '',
+        });
+      }).toThrow(expectedError);
+    });
+  });
+});
+
+describe('RuleTest class', (): void => {
   beforeEach((): void => {
     mocked(stylelint.lint).mockResolvedValue({
       results: [
@@ -80,5 +106,10 @@ describe('RuleTest class', (): void => {
   RuleTest.describe('_rule_name_', {
     name: '_test_case_3_',
     code: '_test_case_code_',
+  });
+
+  RuleTest.describe('_rule_name_', {
+    name: '_test_case_4_',
+    files: '_test_case_file_',
   });
 });

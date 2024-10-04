@@ -10,18 +10,22 @@ with [Jest](https://github.com/jestjs/jest).
 
 ## Installation
 
-```bash
+Using npm:
+
+```shell
 npm install --save-dev @jhae/stylelint-rule-tester
 ```
 
 ## Usage
 
+### With inline code
+
 Suppose your Stylelint configuration file contains the following rule:
 
 ```yaml
 at-rule-disallowed-list:
-  - import
   - debug
+  - import
 ```
 
 Your test file for the `at-rule-disallowed-list` rule could look like this:
@@ -29,40 +33,45 @@ Your test file for the `at-rule-disallowed-list` rule could look like this:
 ```typescript
 import { RuleTest } from '@jhae/stylelint-rule-tester';
 
-// By default, the rule tester looks for a `.stylelintrc.yaml` configuration file.
-// Call `setConfigFile` to set a different configuration file.
+// By default, the rule tester looks for a '.stylelintrc.yaml' configuration file.
+// Call 'setConfigFile' to set a different configuration file.
 RuleTest.setConfigFile('stylelint.config.js');
 
 // Describe the tests by defining the rule to be tested and the test cases.
 RuleTest.describe(
   // First pass the name of the rule.
   'at-rule-disallowed-list',
+
   // Now describe one or more test cases.
   {
     // Give the test case a name.
-    name: 'Disallow @import rule',
+    name: 'Disallow @debug rule',
+
     // Place the code to be tested against the configuration file here.
-    code: `
-      @import "test-1.css";
-      @import "test-2.css";
-    `,
+    code: '@debug "Debug";',
+
     // Define your expectation.
     expect: {
       // Whether Stylelint should report an error or not.
       errored: true,
+
       // The messages that Stylelint should report.
-      messages: ['Unexpected at-rule "import"', 'Unexpected at-rule "import"'],
+      messages: ['Unexpected at-rule "debug"'],
+
       // The severities that Stylelint should report for each message.
-      severities: ['error', 'error'],
+      severities: ['error'],
     },
   },
   {
-    name: 'Disallow @debug rule',
-    code: '@debug "Debug";',
+    name: 'Disallow @import rule',
+    code: `
+      @import "test-1.css";
+      @import "test-2.css";
+    `,
     expect: {
       errored: true,
-      messages: ['Unexpected at-rule "debug"'],
-      severities: ['error'],
+      messages: ['Unexpected at-rule "import"', 'Unexpected at-rule "import"'],
+      severities: ['error', 'error'],
     },
   },
   {
@@ -78,11 +87,60 @@ The output would look like this:
 
 ```shell
 Rule 'at-rule-disallowed-list'
-  ✓ Disallow @import rule (1 ms)
   ✓ Disallow @debug rule (1 ms)
+  ✓ Disallow @import rule (1 ms)
   ✓ Allow @use rule (1 ms)
-
 ```
+
+### With files
+
+You also have the option of passing a file to the test case. This is useful for testing overrides, for example.
+
+Suppose your Stylelint configuration file contains the following content:
+
+```yaml
+rules:
+  at-rule-disallowed-list:
+    - import
+
+overrides:
+  - files:
+      - '*.css'
+      - '**/*.css'
+    rules:
+      at-rule-disallowed-list: null
+```
+
+Create a CSS file (for example `at-rule-disallowed-list.css`) with the following content:
+
+```css
+@import 'test.css';
+```
+
+Your test file could then look like this:
+
+```typescript
+import { RuleTest } from '@jhae/stylelint-rule-tester';
+
+RuleTest.describe(
+  'at-rule-disallowed-list',
+  {
+    name: 'Disallow @import rule',
+    code: '@import "test.css";',
+    expect: {
+      errored: true,
+      messages: ['Unexpected at-rule "import"'],
+      severities: ['error'],
+    },
+  },
+  {
+    name: 'Allow @import rule in CSS files',
+    files: 'at-rule-disallowed-list.css',
+  },
+);
+```
+
+---
 
 Check out the [Standard SCSS Stylelint Config](https://github.com/jhae-de/stylelint-config-standard-scss) tests for more
 examples.

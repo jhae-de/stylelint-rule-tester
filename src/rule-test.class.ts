@@ -66,14 +66,19 @@ export class RuleTest {
   /**
    * Runs Stylelint for the given test case and returns a Promise that resolves to the linter result.
    *
-   * @param {string} code The code to check for violations
+   * @param {TestCase} testCase The test case
    *
    * @return {Promise<LinterResult>}
    */
-  protected static getLinterResult({ code }: TestCase): Promise<LinterResult> {
+  protected static getLinterResult({ code, files }: TestCase): Promise<LinterResult> {
+    if ([code, files].filter((value): boolean => value === undefined).length !== 1) {
+      throw new Error('Though both "code" and "files" are optional, you must have one and cannot have both.');
+    }
+
     return stylelint.lint({
       configFile: this.configFile,
       code,
+      files,
     });
   }
 

@@ -7,6 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+## [1.4.0] - 2024-10-04
+
+### Added
+
+- Added the option to use files in a test case
+
 ## [1.3.0] - 2024-08-18
 
 ### Changed
@@ -37,7 +43,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 Initial release
 
-[Unreleased]: https://github.com/jhae-de/stylelint-rule-tester/compare/v1.3.0...main
+[Unreleased]: https://github.com/jhae-de/stylelint-rule-tester/compare/v1.4.0...main
+[1.4.0]: https://github.com/jhae-de/stylelint-rule-tester/releases/tag/v1.4.0
 [1.3.0]: https://github.com/jhae-de/stylelint-rule-tester/releases/tag/v1.3.0
 [1.2.0]: https://github.com/jhae-de/stylelint-rule-tester/releases/tag/v1.2.0
 [1.1.0]: https://github.com/jhae-de/stylelint-rule-tester/releases/tag/v1.1.0
