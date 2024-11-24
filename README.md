@@ -3,6 +3,18 @@
 ![Tests](https://img.shields.io/github/actions/workflow/status/jhae-de/stylelint-rule-tester/analyze.yaml?label=Tests)
 ![Coverage](https://img.shields.io/codecov/c/github/jhae-de/stylelint-rule-tester/main?label=Coverage)
 
+> [!WARNING]
+> This repository is no longer maintained and was archived on November 24, 2024.
+>
+> The [Stylelint Rule Tester](https://github.com/jhae-de/stylelint-rule-tester) has been moved
+> to [Stylelint Config Verifier](https://github.com/jhae-de/stylelint-config-verifier) and the
+> package [@jhae/stylelint-rule-tester](https://www.npmjs.com/package/@jhae/stylelint-rule-tester) has been marked as
+> deprecated. Please
+> use [@jhae/stylelint-config-verifier](https://www.npmjs.com/package/@jhae/stylelint-config-verifier)
+> instead.
+
+---
+
 # Stylelint Rule Tester
 
 Easily test your [Stylelint](https://github.com/stylelint/stylelint) configuration
